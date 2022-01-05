@@ -3627,7 +3627,7 @@ msgid "If enabled vendor can configure their shipping on dashboard."
 msgstr ""
 
 #: admin/class-wcmp-settings-capabilities-product.php:40
-msgid "If enabled vendor can not chnage order status from frontend."
+msgid "If enabled vendor can not change order status from frontend."
 msgstr ""
 
 #: admin/class-wcmp-settings-general.php:41

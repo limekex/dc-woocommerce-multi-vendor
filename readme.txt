@@ -14,7 +14,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 Afraid of launching an **Online Marketplace**? Well, worry no more WC Marketplace provides you with the best **marketplace software**, you can get, to kickstart your own **virtual eCommerce marketplace**. This free WordPress plugin equips you with the best of features that help to create any marketplace of your choice. So, **create a website like Amazon, Etsy or Airbnb**  without any worries. 
 
-[Try Our Demo](http://wcmpdemos.com/all-in-one-demo/my-account/) | [Support](https://wc-marketplace.com/support-forum/) | [Features](https://wc-marketplace.com/features/) | [Extensions](https://wc-marketplace.com/addons/) | Marketplaces 
+[Try Our Demo](http://wcmpdemos.com/all-in-one-demo/my-account/) | [Support](https://wc-marketplace.com/support-forum/) | [Features](https://wc-marketplace.com/features/) | [Extensions](https://wc-marketplace.com/addons/) | [Videos](https://www.youtube.com/c/WCMarketplace)
 
 ### Try us because we provide:
 * **Free Software** that requires **no codes** to start with 
