@@ -5,7 +5,7 @@ Donate link: https://wc-marketplace.com/donate
 Requires at least: 4.4
 Tested up to: 5.8.2
 Requires PHP: 5.6
-Stable tag: 3.8.5
+Stable tag: 3.8.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 Afraid of launching an **Online Marketplace**? Well, worry no more WC Marketplace provides you with the best **marketplace software**, you can get, to kickstart your own **virtual eCommerce marketplace**. This free WordPress plugin equips you with the best of features that help to create any marketplace of your choice. So, **create a website like Amazon, Etsy or Airbnb**  without any worries. 
 
-[Try Our Demo](http://wcmpdemos.com/all-in-one-demo/my-account/) | [Support](https://wc-marketplace.com/support-forum/) | [Features](https://wc-marketplace.com/features/) | [Extensions](https://wc-marketplace.com/addons/) | Marketplaces 
+[Try Our Demo](http://wcmpdemos.com/all-in-one-demo/my-account/) | [Support](https://wc-marketplace.com/support-forum/) | [Features](https://wc-marketplace.com/features/) | [Extensions](https://wc-marketplace.com/addons/) | [Videos](https://www.youtube.com/c/WCMarketplace)
 
 ### Try us because we provide:
 * **Free Software** that requires **no codes** to start with 
@@ -280,7 +280,18 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 
 == Changelog ==
 
-= 3.8.5 - 2021-13-15 =
+= 3.8.6 - 2022-01-05 =
+* Added - Compatibility of WooCommerce 6.0.0.
+* Fix - Table rate shipping not saving decimal value #993.
+* Fix - Vendor setup widget site title broken #994.
+* Fix - Admin order list page php notice issue on suborder column #998.
+* Fix - Announcement email HTML formatting issue #996.
+* Fix - Vendor name display in announcement email #1006.
+* Fix - Coupon display issue #1004.
+* Dev - Added `wcmp_widget_vendor_product_sales_report_line_items` filter.
+* Updated - Language file.
+
+= 3.8.5 - 2021-12-15 =
 * Added - Bulk Mark as Shipped #786.
 * Added - Order search in vendor dashboard #692.
 * Updated - Language file.
