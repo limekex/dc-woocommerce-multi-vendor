@@ -412,7 +412,7 @@ class WCMp_Product {
 
     function vendor_product_restriction() {
         global $WCMp;
-        if (is_ajax())
+        if (wp_doing_ajax())
             return;
         $current_user_id = get_current_vendor_id();
         if (is_user_wcmp_vendor($current_user_id)) {
