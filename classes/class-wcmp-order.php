@@ -490,7 +490,7 @@ class WCMp_Order {
         $checkout_fields = array();
         if( !$data_migration ){
             $wc_checkout = WC()->checkout();
-            $checkout_fields = !is_admin() && !is_ajax() ? $wc_checkout->checkout_fields : array();
+            $checkout_fields = !is_admin() && !wp_doing_ajax() ? $wc_checkout->checkout_fields : array();
         }
         
         self::create_wcmp_order_line_items($vendor_order, $args);
