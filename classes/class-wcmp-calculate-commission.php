@@ -741,7 +741,7 @@ class WCMp_Calculate_Commission {
                             return array('commission_val' => $category_wise_commission);
                         }
                         $vendor_commission = get_user_meta($vendor->id, '_vendor_commission', true);
-                        if ($vendor_commission) {
+                        if ($vendor_commission || $vendor_commission == 0) {
                             return array('commission_val' => $vendor_commission); // Use vendor user commission percentage 
                         } else {
                             return isset($WCMp->vendor_caps->payment_cap['default_commission']) ? array('commission_val' => $WCMp->vendor_caps->payment_cap['default_commission']) : false; // Use default commission

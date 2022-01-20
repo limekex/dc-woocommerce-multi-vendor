@@ -675,10 +675,11 @@ class WCMp_Product {
         if (current_user_can('administrator') && $new_status != $old_status && $post->post_status == 'publish') {
             if (isset($_POST['choose_vendor']) && !empty($_POST['choose_vendor'])) {
                 $term = get_term($_POST['choose_vendor'], $WCMp->taxonomy->taxonomy_name);
+                $is_first_time = isset($_POST['auto_draft']) ? $_POST['auto_draft'] : '';
                 if ($term) {
                     $vendor = get_wcmp_vendor_by_term($term->term_id);
                     $email_admin = WC()->mailer()->emails['WC_Email_Admin_Added_New_Product_to_Vendor'];
-                    $email_admin->trigger($post->post_id, $post, $vendor);
+                    $email_admin->trigger($post->post_id, $post, $vendor, $is_first_time);
                 }
             }
         }
