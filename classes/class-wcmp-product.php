@@ -35,9 +35,7 @@ class WCMp_Product {
         add_action('woocommerce_ajax_save_product_variations', array($this, 'save_variation_commission'));
         add_action('woocommerce_product_after_variable_attributes', array(&$this, 'add_variation_settings'), 10, 3);
         add_filter('pre_get_posts', array(&$this, 'convert_business_id_to_taxonomy_term_in_query'));
-        if (is_admin()) {
-            add_action('transition_post_status', array(&$this, 'on_all_status_transitions'), 10, 3);
-        }
+        add_action('transition_post_status', array(&$this, 'on_all_status_transitions'), 10, 3);
         add_action('woocommerce_product_meta_start', array(&$this, 'add_report_abuse_link'), 30);
         //if ($WCMp->vendor_caps->vendor_frontend_settings('enable_vendor_tab')) {
         add_filter('woocommerce_product_tabs', array(&$this, 'product_vendor_tab'));

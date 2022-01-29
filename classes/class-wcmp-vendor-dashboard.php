@@ -2214,11 +2214,6 @@ Class WCMp_Admin_Dashboard {
                     $errors = array_merge( $errors, $error );
                 }
 
-                // Notify Admin on New Product Creation
-                if ( ( ! $_POST['is_update'] || $_POST['original_post_status'] == 'draft' ) && $status != 'draft' ) {
-                    $WCMp->product->on_all_status_transitions( $status, '', get_post( $post_id ) );
-                }
-
                 do_action( 'wcmp_process_product_meta_' . $product_type, $post_id, $_POST );
 
                 foreach ( $errors as $error ) {

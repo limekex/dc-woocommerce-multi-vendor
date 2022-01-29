@@ -61,7 +61,9 @@ if (!class_exists('WCMp_WP_Fields')) {
             $field['class'] = isset($field['class']) ? $field['class'] : 'regular-text';
             $field['dfvalue'] = isset($field['dfvalue']) ? $field['dfvalue'] : '';
             $field['value'] = isset($field['value']) ? $field['value'] : $field['dfvalue'];
-            
+            if (empty($field['value'])) {
+                $field['value'] = $field['dfvalue'];
+            }
             $field['name'] = isset($field['name']) ? $field['name'] : $field['id'];
             $field['type'] = isset($field['type']) ? $field['type'] : 'text';
 
