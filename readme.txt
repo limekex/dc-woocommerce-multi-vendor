@@ -1,5 +1,5 @@
 === Multivendor Marketplace Solution for WooCommerce - WC Marketplace ===
-Contributors: wcmp, purnendu, itzmekhokan, rajsekharchatterjee11, sumitsingh89612
+Contributors: wcmp, purnendu, rajsekharchatterjee11, sumitsingh89612
 Tags: multi vendor marketplace, woocommerce multivendor marketplace, multi seller store, product vendors, best marketplace plugin, multi seller, one product multi seller, woocommerce vendors, ebay, etsy, amazon, commission rate
 Donate link: https://wc-marketplace.com/donate
 Requires at least: 4.4
