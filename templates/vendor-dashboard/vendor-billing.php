@@ -186,14 +186,17 @@ $multi_split_payment_options = $WCMp->vendor_dashboard->is_multi_option_split_en
 	
 									$status = delete_user_meta($user_id, 'vendor_connected');
 									$status = delete_user_meta($user_id, 'admin_client_id');
-	
+									$vendor_country_code = get_user_meta($user_id, '_vendor_country_code', true) ? get_user_meta($user_id, '_vendor_country_code', true) : 'US';
 									// Show OAuth link
 									$authorize_request_body = array(
 										'response_type' => 'code',
 										'scope' => 'read_write',
 										'client_id' => $client_id,
 										'redirect_uri' => admin_url('admin-ajax.php') . "?action=marketplace_stripe_authorize",
-										'state' => $user_id
+										'state' => $user_id,
+										'stripe_user'	=>	array(
+                                        						'country'	=> $vendor_country_code
+                                        					)
 									);
 									$url = apply_filters( 'wcmp_vendor_stripe_connect_account_type_request_url', 'https://connect.stripe.com/oauth/authorize', $account_type ) . '?' . http_build_query( apply_filters( 'wcmp_vendor_stripe_connect_account_type_request_params' , $authorize_request_body, $account_type ) );
 									$stripe_connect_url = $WCMp->plugin_url . 'assets/images/blue-on-light.png';
