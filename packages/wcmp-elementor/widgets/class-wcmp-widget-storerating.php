@@ -402,7 +402,7 @@ class WCMp_Elementor_StoreRating extends Widget_Base {
 	 * @since 2.3.0
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			var getRating = function() {

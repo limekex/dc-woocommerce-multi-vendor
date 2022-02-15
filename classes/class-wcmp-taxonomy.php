@@ -40,8 +40,10 @@ class WCMp_Taxonomy {
      * @package WCMp
      */
     public function register_post_taxonomy() {
+        $permalinks = get_option('dc_vendors_permalinks');
+        $taxonomyname = empty($permalinks['vendor_shop_base']) ? __('Vendor', 'dc-woocommerce-multi-vendor') : $permalinks['vendor_shop_base'];
         $labels = array(
-            'name' => apply_filters('wcmp_vendor_taxonomy_name', __('Vendor', 'dc-woocommerce-multi-vendor')),
+            'name' => apply_filters('wcmp_vendor_taxonomy_name', $taxonomyname),
             'singular_name' => __('Vendor', 'dc-woocommerce-multi-vendor'),
             'menu_name' => __('Vendors', 'dc-woocommerce-multi-vendor'),
             'search_items' => __('Search Vendors', 'dc-woocommerce-multi-vendor'),
