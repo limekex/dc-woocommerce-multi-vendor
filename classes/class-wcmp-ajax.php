@@ -3928,7 +3928,7 @@ class WCMp_Ajax {
                 }
 
                 if ($include) {
-                    $ids = array_slice(array_intersect($ids, $include), 0, 10);
+                    $ids = array_slice(array_intersect($ids, $include), 0, apply_filters('wcmp_spmv_list_product_search_number', 10));
                 } else {
                     $ids = array();
                 }
