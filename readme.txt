@@ -289,6 +289,8 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 * Fix - Missing strings in .pot file #1032.
 * Fix - Shipping option should not be there in vendor dashboard for local pickup #1026.
 * Fix - WCMp Email Footer text not changing #1025.
+* Fix - Stripe connect account bug.
+* Fix - Elementor code update.
 * Dev - Added `wcmp_spmv_list_product_search_number` filter.
 * Updated - Language file.
 
