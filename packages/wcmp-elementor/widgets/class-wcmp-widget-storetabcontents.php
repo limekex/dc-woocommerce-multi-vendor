@@ -153,7 +153,7 @@ class WCMp_Elementor_StoreTabContents extends WCMp_Elementor_StoreName {
      *
      * @return void
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
             <#
                 print( settings.products );

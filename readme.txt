@@ -5,7 +5,7 @@ Donate link: https://wc-marketplace.com/donate
 Requires at least: 4.4
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 3.8.8
+Stable tag: 3.8.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -279,6 +279,20 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 14. Show Multiple Seller in Single Product.
 
 == Changelog ==
+
+= 3.8.9 - 2022-02-16 =
+* Added - Compatibility of WooCommerce 6.2.0.
+* Fix - Search SPMV product more than 10 #1020.
+* Fix - Error on add product page #1040.
+* Fix - Cancel Email stop for Vendor new order #1044.
+* Fix - Updated slug issue #1038.
+* Fix - Missing strings in .pot file #1032.
+* Fix - Shipping option should not be there in vendor dashboard for local pickup #1026.
+* Fix - WCMp Email Footer text not changing #1025.
+* Fix - Stripe connect account bug.
+* Fix - Elementor code update.
+* Dev - Added `wcmp_spmv_list_product_search_number` filter.
+* Updated - Language file.
 
 = 3.8.8 - 2022-01-29 =
 * Added - Compatibility of WordPress 5.9.
