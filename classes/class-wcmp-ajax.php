@@ -322,7 +322,7 @@ class WCMp_Ajax {
                 if ($vendor->is_shipping_enable()) {
                     $vendor_shipping_method = get_wcmp_vendor_order_shipping_method($order->get_id(), $vendor->id);
                     // hide shipping for local pickup
-                    if ($vendor_shipping_method && !in_array($vendor_shipping_method->get_method_id(), apply_filters('hide_shipping_icon_for_vendor_order_on_methods', array('local_pickup')))) {
+                    if ($vendor_shipping_method && !in_array($vendor_shipping_method->get_name(), apply_filters('hide_shipping_icon_for_vendor_order_on_methods', array('Local pickup')))) {
                         $actions['mark_ship'] = array(
                             'url' => '#',
                             'title' => $mark_ship_title,
