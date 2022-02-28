@@ -19,9 +19,6 @@ jQuery(document).ready(function($) {
         })
     }
 
-    $('#from_vendor, #to_vendor, #from_product, #to_product, #from_banking_overview, #to_banking_overview').datepicker({
-        dateFormat: 'yy-mm-dd'
-    });
     $(".vendor_report_sort").change(function() {
         $(".high_to_low").is(":checked") ? ($(".low_to_high").prop("checked", !1), selected_sorting = $(".vendor_report_sort").val(), sorting_order = selected_sorting + "_desc", vendor_report_sort(sorting_order)) : ($(".low_to_high").prop("checked", !0), selected_sorting = $(".vendor_report_sort").val(), sorting_order = selected_sorting + "_asc", vendor_report_sort(sorting_order))
     }), $(".low_to_high_btn_vendor").click(function() {
