@@ -63,7 +63,7 @@ class WCMp_Elementor {
 		$wcmp_elementor = new WCMp_Elementor( __FILE__ );
 		$GLOBALS['wcmp_elementor'] = $wcmp_elementor;
 
-		add_action( 'elementor_pro/init', array( $this, 'wcmp_elementor_init' ) );
+		add_action( 'elementor/init', array( &$this, 'wcmp_elementor_init' ) );
 	}
 
 	public function load_class($class_name = '') {
@@ -75,19 +75,19 @@ class WCMp_Elementor {
 
 	public function wcmp_elementor_init() {
 		global $WCMp;
+		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Traits/wcmp-elementor-position-controls.php';
 
 		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Abstracts/ModuleBase.php';
 		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Abstracts/DataTagBase.php';
 		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Abstracts/TagBase.php';
 		
+		// store page include
 		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Conditions/Store.php';
 		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Documents/StorePage.php';
 		
 		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Controls/DynamicHidden.php';
 		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Controls/SortableList.php';
 		
-		require_once $WCMp->plugin_path . 'packages/wcmp-elementor/includes/Traits/wcmp-elementor-position-controls.php';
-
 		add_action( 'elementor/elements/categories_registered', [ &$this, 'wcmp_categories' ] );
 
 		// Templates
