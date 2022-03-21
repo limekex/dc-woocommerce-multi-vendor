@@ -107,19 +107,18 @@ class WCMp_Elementor_Module extends WCMp_Elementor_ModuleBase {
      *
      * @return void
      */
-    public function register_controls() {
-    	global $wcmp_elementor;
-		$controls = [
-				'WCMp_Elementor_SortableList',
-				'WCMp_Elementor_DynamicHidden',
-		];
+    public function register_controls($controls_manager) {
+        global $wcmp_elementor;    
+        $controls = [
+            'SortableList',
+            'DynamicHidden',
+        ];
 
-		$controls_manager = $wcmp_elementor->wcmp_elementor()->controls_manager;
+        foreach ( $controls as $control ) {
+          $control_class = "WCMp_Elementor_{$control}";
+          $controls_manager->register( new $control_class() );
+        }
 
-		foreach ( $controls as $control ) {
-			$control_class = "{$control}";
-			$controls_manager->register_control( $control_class::CONTROL_TYPE, new $control_class() );
-		}
     }
 
     /**
