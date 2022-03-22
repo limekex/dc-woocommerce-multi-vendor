@@ -1549,8 +1549,9 @@ class WCMp_Commission {
                         $vendor_user_id = get_term_meta($data, '_vendor_user_id', true);
                         if ($vendor_user_id) {
                             $vendor = get_wcmp_vendor($vendor_user_id);
+                            $vendor_page_title = ($vendor) ? $vendor->page_title : __('Deleted vendor', 'dc-woocommerce-multi-vendor');
                             $edit_url = get_edit_user_link($vendor_user_id);
-                            echo '<a href="' . esc_url($edit_url) . '">' . $vendor->page_title . '</a>';
+                            echo '<a href="' . esc_url($edit_url) . '">' . $vendor_page_title . '</a>';
                         }
                     }
                 }
