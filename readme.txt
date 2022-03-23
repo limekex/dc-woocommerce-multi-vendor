@@ -284,6 +284,7 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 * Added - Compatibility of WordPress 5.9.2.
 * Added - Compatibility of WooCommerce 6.3.1.
 * Enhancement   - Elementor filter update #1061.
+* Added - Create Sub order via bulk action.
 * Fix   - Refund creating two notes #1064.
 * Fix   - Issue at the time of full refund #1065.
 * Fix   - Page title error #1058.
