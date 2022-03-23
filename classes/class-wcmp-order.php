@@ -937,7 +937,7 @@ class WCMp_Order {
      */
     public function wcmp_order_refunded($order_id, $parent_refund_id) {
         
-        if (!wp_get_post_parent_id($order_id)) { 
+        if (!wp_get_post_parent_id($order_id) && !is_user_wcmp_vendor(get_current_user_id())) {
             $create_vendor_refund = false;
             $create_refund = true;
             $refund = false;

@@ -4176,13 +4176,6 @@ class WCMp_Ajax {
                     );
                 }
             }
-
-            if (is_wp_error($refund)) {
-                throw new Exception($refund->get_error_message());
-            }
-            if (is_wp_error($parent_refund)) {
-                throw new Exception($parent_refund->get_error_message());
-            }
             
             do_action( 'wcmp_order_refunded', $order_id, $refund->get_id() );
 
