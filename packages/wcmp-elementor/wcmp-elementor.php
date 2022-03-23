@@ -50,7 +50,7 @@ class WCMp_Elementor {
 	 * @return boolean
 	 */
 	public function has_dependencies() {
-		return class_exists( 'WCMp' );
+		return class_exists( 'WCMp' ) && WC_Dependencies_Product_Vendor::elementor_pro_active_check();
 	}
         
 	/**
