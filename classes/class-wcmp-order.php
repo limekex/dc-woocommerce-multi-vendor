@@ -79,6 +79,9 @@ class WCMp_Order {
             add_filter( "woocommerce_rest_shop_order_object_query", array($this, 'wcmp_suborder_hide' ), 99 , 2 );
             // customer list report section
             add_filter( "woocommerce_customer_get_total_spent_query", array($this, 'woocommerce_customer_exclude_suborder_query' ), 10 , 2 );
+            // extra option on orders page
+            add_filter('bulk_actions-edit-shop_order', array(&$this, 'register_shop_order_bulk_actions'));
+            add_filter('handle_bulk_actions-edit-shop_order', array(&$this, 'shop_order_bulk_action_handler'), 10, 3);
         }
     }
 
@@ -1669,5 +1672,21 @@ class WCMp_Order {
             $vendor_item_id = $wpdb->get_var( $wpdb->prepare( "SELECT meta_value FROM {$wpdb->order_itemmeta} WHERE meta_key=%s AND order_item_id=%d", '_vendor_order_shipping_item_id', absint( $item_id ) ) );
         }
         return $vendor_item_id;
+    }
+
+    public function register_shop_order_bulk_actions($bulk_actions) {
+        $bulk_actions['mark_create_suborder'] = __('Create Suborder', 'dc-woocommerce-multi-vendor');
+        return apply_filters('wcmp_shop_order_bulk_action', $bulk_actions);
+    }
+
+    public function shop_order_bulk_action_handler($redirect_to, $doaction, $post_ids) {
+        if ($doaction == 'mark_create_suborder') {
+            if ($post_ids) {
+                foreach ($post_ids as $post_key => $order_id) {
+                    $this->wcmp_manually_create_order_item_and_suborder($order_id, '', true);
+                }
+            }
+        }
+        return apply_filters('wcmp_shop_order_bulk_action_handler', $redirect_to, $doaction, $post_ids);
     }
 }
