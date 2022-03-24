@@ -280,6 +280,10 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 
 == Changelog ==
 
+= 3.8.11.1 - 2022-03-24 =
+* Fix   - Error if elementor pro is deactive.
+* Updated - Language file.
+
 = 3.8.11 - 2022-03-23 =
 * Added - Compatibility of WordPress 5.9.2.
 * Added - Compatibility of WooCommerce 6.3.1.
