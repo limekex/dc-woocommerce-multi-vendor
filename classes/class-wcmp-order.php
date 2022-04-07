@@ -1643,8 +1643,7 @@ class WCMp_Order {
     }
 
     public function wcmp_suborder_hide( $args, $request ){
-        $woocommerce_orders = wcmp_get_orders( array('post_status' => array('wc-processing', 'wc-completed', 'wc-on-hold')), 'ids', true );
-        $args['post__not_in'] = $woocommerce_orders;
+        $args['post_parent__in'] = array(0);
         return $args;
     }
 
