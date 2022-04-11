@@ -971,7 +971,7 @@ class WCMp_Product {
                         }
 
                         $vendor = get_wcmp_vendor_by_term(absint($_POST['choose_vendor']));
-                        if (!wp_is_post_revision($product)) {
+                        if (!wp_is_post_revision($product) && $vendor) {
                             // unhook this function so it doesn't loop infinitely
                             remove_action('save_post', array($this, 'process_vendor_data'));
                             // update the post, which calls save_post again
