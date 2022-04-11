@@ -285,6 +285,9 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 * Fix   - Limit zone saved issue #1067.
 * Fix   - WPML Error #1068.
 * Fix   - Load more not working #1070.
+* Fix   - Error at backend #1075.
+* Fix   - Order Export omitting orders with deleted products #1043.
+* Dev   - Added `wcmp_order_export_if_product_exist` filter.
 * Updated - Language file.
 
 = 3.8.11.1 - 2022-03-24 =
