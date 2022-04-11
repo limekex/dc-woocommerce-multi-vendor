@@ -527,7 +527,11 @@ class WCMp_Vendor {
                     if ($product_id) {
                         if ($term_id > 0) {
                             $product_vendors = get_wcmp_product_vendors($product_id);
-                            if (!empty($product_vendors) && $product_vendors->term_id == $term_id) {
+                            if (apply_filters('wcmp_order_export_if_product_exist', true)) {
+                                if (!empty($product_vendors) && $product_vendors->term_id == $term_id) {
+                                    $item_dtl[$item_id] = $item;
+                                }
+                            } else {
                                 $item_dtl[$item_id] = $item;
                             }
                         }
