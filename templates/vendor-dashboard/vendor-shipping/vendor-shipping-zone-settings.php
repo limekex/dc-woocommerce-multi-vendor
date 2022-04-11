@@ -5,49 +5,47 @@
 		<a href="javascript:void(0);" ><i class="wcmp-font ico-back-arrow"></i> <?php  esc_html_e('Shipping Zones', 'dc-woocommerce-multi-vendor'); ?></a>
 		<hr>
 	</div>
-	<form action="" method="post">
-		<div class="form-group"> 
-			<label class="control-label col-sm-3 col-md-3"><?php esc_html_e('Zone Name', 'dc-woocommerce-multi-vendor'); ?></label>
-			<div class="col-md-6 col-sm-9"><?php echo esc_attr($zones['data']['zone_name']); ?></div>
-		</div>
-		<div class="form-group"> 
-			<label class="control-label col-sm-3 col-md-3"><?php esc_html_e('Zone region', 'dc-woocommerce-multi-vendor'); ?></label>
-			<div class="col-md-6 col-sm-9"><?php echo esc_attr($zones['formatted_zone_location']); ?></div>
-		</div>		
+	<div class="form-group"> 
+		<label class="control-label col-sm-3 col-md-3"><?php esc_html_e('Zone Name', 'dc-woocommerce-multi-vendor'); ?></label>
+		<div class="col-md-6 col-sm-9"><?php echo esc_attr($zones['data']['zone_name']); ?></div>
+	</div>
+	<div class="form-group"> 
+		<label class="control-label col-sm-3 col-md-3"><?php esc_html_e('Zone region', 'dc-woocommerce-multi-vendor'); ?></label>
+		<div class="col-md-6 col-sm-9"><?php echo esc_attr($zones['formatted_zone_location']); ?></div>
+	</div>		
+	<div class="form-group">
+	   	<div class="col-md-6 col-sm-9">
+	    	<input id="zone_id" class="form-control" type="hidden" name="<?php echo esc_attr('wcmp_shipping_zone['. $zone_id .'][_zone_id]'); ?>" value="<?php echo esc_attr($zone_id); ?>">
+	   	</div>
+	</div>
+	<?php if( $show_limit_location_link && $zone_id !== 0 ) { ?>
 		<div class="form-group">
+		   	<label for="" class="control-label col-sm-3 col-md-3"><?php esc_html_e( 'Limit Zone Location', 'dc-woocommerce-multi-vendor' ); ?></label>
 		   	<div class="col-md-6 col-sm-9">
-		    	<input id="zone_id" class="form-control" type="hidden" name="<?php echo esc_attr('wcmp_shipping_zone['. $zone_id .'][_zone_id]'); ?>" value="<?php echo esc_attr($zone_id); ?>">
+		    	<input id="limit_zone_location" class="form-control" type="checkbox" name="<?php echo esc_attr('wcmp_shipping_zone['. $zone_id .'][_limit_zone_location]'); ?>" value="1" <?php checked( $want_to_limit_location, 1 ); ?>>
 		   	</div>
 		</div>
-		<?php if( $show_limit_location_link && $zone_id !== 0 ) { ?>
-			<div class="form-group">
-			   	<label for="" class="control-label col-sm-3 col-md-3"><?php esc_html_e( 'Limit Zone Location', 'dc-woocommerce-multi-vendor' ); ?></label>
-			   	<div class="col-md-6 col-sm-9">
-			    	<input id="limit_zone_location" class="form-control" type="checkbox" name="<?php echo esc_attr('wcmp_shipping_zone['. $zone_id .'][_limit_zone_location]'); ?>" value="1" <?php checked( $want_to_limit_location, 1 ); ?>>
-			   	</div>
-			</div>
-		<?php } ?>
-		<?php if( $show_state_list ) { ?>
-			<div class="form-group hide_if_zone_not_limited">
-			   	<label for="" class="control-label col-sm-3 col-md-3"><?php esc_html_e( 'Select specific states', 'dc-woocommerce-multi-vendor' ); ?></label>
-			   	<div class="col-md-6 col-sm-9">
-			    	<select id="select_zone_states" class="form-control" name="<?php echo esc_attr('wcmp_shipping_zone['. $zone_id .'][_select_zone_states][]'); ?>" multiple>
-			    		<?php foreach( $state_key_by_country as $key => $value ) { ?>
-			    			<option value="<?php echo $key; ?>" <?php selected( in_array( $key, $states ), true ); ?>><?php echo esc_html($value); ?></option>
-			    		<?php } ?>
-			    	</select>
-			   	</div>
-			</div>
-		<?php } ?>
-		<?php if( $show_post_code_list ) { ?>
-			<div class="form-group hide_if_zone_not_limited">
-			   	<label for="" class="control-label col-sm-3 col-md-3"><?php esc_html_e( 'Set your postcode', 'dc-woocommerce-multi-vendor' ); ?></label>
-			   	<div class="col-md-6 col-sm-9">
-			    	<input id="select_zone_postcodes" class="form-control" type="text" name="<?php echo 'wcmp_shipping_zone['. $zone_id .'][_select_zone_postcodes]'; ?>" value="<?php echo $postcodes; ?>" placeholder="<?php esc_attr_e( 'Postcodes need to be comma separated', 'dc-woocommerce-multi-vendor' ); ?>">
-			   	</div>
-			</div>
-		<?php } ?>
-	</form>
+	<?php } ?>
+	<?php if( $show_state_list ) { ?>
+		<div class="form-group hide_if_zone_not_limited">
+		   	<label for="" class="control-label col-sm-3 col-md-3"><?php esc_html_e( 'Select specific states', 'dc-woocommerce-multi-vendor' ); ?></label>
+		   	<div class="col-md-6 col-sm-9">
+		    	<select id="select_zone_states" class="form-control" name="<?php echo esc_attr('wcmp_shipping_zone['. $zone_id .'][_select_zone_states][]'); ?>" multiple>
+		    		<?php foreach( $state_key_by_country as $key => $value ) { ?>
+		    			<option value="<?php echo $key; ?>" <?php selected( in_array( $key, $states ), true ); ?>><?php echo esc_html($value); ?></option>
+		    		<?php } ?>
+		    	</select>
+		   	</div>
+		</div>
+	<?php } ?>
+	<?php if( $show_post_code_list ) { ?>
+		<div class="form-group hide_if_zone_not_limited">
+		   	<label for="" class="control-label col-sm-3 col-md-3"><?php esc_html_e( 'Set your postcode', 'dc-woocommerce-multi-vendor' ); ?></label>
+		   	<div class="col-md-6 col-sm-9">
+		    	<input id="select_zone_postcodes" class="form-control" type="text" name="<?php echo 'wcmp_shipping_zone['. $zone_id .'][_select_zone_postcodes]'; ?>" value="<?php echo $postcodes; ?>" placeholder="<?php esc_attr_e( 'Postcodes need to be comma separated', 'dc-woocommerce-multi-vendor' ); ?>">
+		   	</div>
+		</div>
+	<?php } ?>
 	<div class="wcmp-zone-method-wrapper form-group mt-10">
 		<label class="control-label col-sm-3 col-md-3 wcmp-zone-method-heading" for="_sku">
 			<?php esc_html_e( 'Shipping methods', 'dc-woocommerce-multi-vendor' ); ?>

@@ -993,72 +993,71 @@ if (!function_exists('wcmp_get_vendor_review_info')) {
             'avg_rating' => 0,
             'rating_type' => $default_rating,
         );
-
-        if ( $default_rating === 'product-rating' ) {
-            $vendor = get_wcmp_vendor_by_term( $vendor_term_id );
-            $vendor_products = wp_list_pluck( $vendor->get_products_ids(), 'ID' );
-            $rating = $rating_pro_count = 0;
-            if( $vendor_products ) {
-                foreach( $vendor_products as $product_id ) {
-                    if( get_post_meta( $product_id, '_wc_average_rating', true ) ) {
-                        $rating += get_post_meta( $product_id, '_wc_average_rating', true );
-                        $rating_pro_count++;
-                    };
-                }
-            }
-            if( $rating_pro_count ) {
-                $rating_result_array['total_rating'] = $rating_pro_count;
-                $rating_result_array['avg_rating'] = $rating / $rating_pro_count;
-            }
-        } else {
-            $args_default = array(
-                'status' => 'approve',
-                'type' => 'wcmp_vendor_rating',
-                'meta_key' => 'vendor_rating_id',
-                'meta_value' => get_wcmp_vendor_by_term($vendor_term_id)->id,
-                'meta_query' => array(
-                    'relation' => 'AND',
-                    array(
-                        'key' => 'vendor_rating_id',
-                        'value' => get_wcmp_vendor_by_term($vendor_term_id)->id
-                    ),
-                    array(
-                        'key' => 'vendor_rating',
-                        'value' => '',
-                        'compare' => '!='
-                    )
-                )
-            );
-            $args = apply_filters('wcmp_vendor_review_rating_args_to_fetch', $args_default);
-            $rating = $product_rating = 0;
-            $comments = get_comments($args);
-            // If product review sync enabled
-            if (get_wcmp_vendor_settings('product_review_sync', 'general') && get_wcmp_vendor_settings('product_review_sync', 'general') == 'Enable') {
-                $vendor = get_wcmp_vendor_by_term( $vendor_term_id );
-                $args_default_for_product = apply_filters('wcmp_vendors_product_review_info_args', array(
-                    'status' => 'approve',
-                    'type' => 'review',
-                    'post__in' => wp_list_pluck($vendor->get_products_ids(), 'ID' ),
-                    'author__not_in' => array($vendor->id)
-                ) );
-		$product_review_count = !empty($vendor->get_products_ids()) ? get_comments($args_default_for_product) : array();
-                if (!empty($product_review_count)) {
-                    $comments = array_merge(get_comments($args), $product_review_count);
-                }
-            }
-            if ($comments && count($comments) > 0) {
-                foreach ($comments as $comment) {
-                    $rating += floatval(get_comment_meta($comment->comment_ID, 'vendor_rating', true));
-		    if (get_wcmp_vendor_settings('product_review_sync', 'general') && get_wcmp_vendor_settings('product_review_sync', 'general') == 'Enable') {
-                        $product_rating += floatval(get_comment_meta($comment->comment_ID, 'rating', true));
+        $vendor = get_wcmp_vendor_by_term( $vendor_term_id );
+        if ($vendor) {
+            if ( $default_rating === 'product-rating' ) {
+                $vendor_products = wp_list_pluck( $vendor->get_products_ids(), 'ID' );
+                $rating = $rating_pro_count = 0;
+                if( $vendor_products ) {
+                    foreach( $vendor_products as $product_id ) {
+                        if( get_post_meta( $product_id, '_wc_average_rating', true ) ) {
+                            $rating += get_post_meta( $product_id, '_wc_average_rating', true );
+                            $rating_pro_count++;
+                        };
                     }
                 }
-		$rating = $rating + $product_rating;
-                $rating_result_array['total_rating'] = count($comments);
-                $rating_result_array['avg_rating'] = $rating / count($comments);
+                if( $rating_pro_count ) {
+                    $rating_result_array['total_rating'] = $rating_pro_count;
+                    $rating_result_array['avg_rating'] = $rating / $rating_pro_count;
+                }
+            } else {
+                $args_default = array(
+                    'status' => 'approve',
+                    'type' => 'wcmp_vendor_rating',
+                    'meta_key' => 'vendor_rating_id',
+                    'meta_value' => $vendor->id,
+                    'meta_query' => array(
+                        'relation' => 'AND',
+                        array(
+                            'key' => 'vendor_rating_id',
+                            'value' => $vendor->id
+                        ),
+                        array(
+                            'key' => 'vendor_rating',
+                            'value' => '',
+                            'compare' => '!='
+                        )
+                    )
+                );
+                $args = apply_filters('wcmp_vendor_review_rating_args_to_fetch', $args_default);
+                $rating = $product_rating = 0;
+                $comments = get_comments($args);
+                // If product review sync enabled
+                if (get_wcmp_vendor_settings('product_review_sync', 'general') && get_wcmp_vendor_settings('product_review_sync', 'general') == 'Enable') {
+                    $args_default_for_product = apply_filters('wcmp_vendors_product_review_info_args', array(
+                        'status' => 'approve',
+                        'type' => 'review',
+                        'post__in' => wp_list_pluck($vendor->get_products_ids(), 'ID' ),
+                        'author__not_in' => array($vendor->id)
+                    ) );
+    		$product_review_count = !empty($vendor->get_products_ids()) ? get_comments($args_default_for_product) : array();
+                    if (!empty($product_review_count)) {
+                        $comments = array_merge(get_comments($args), $product_review_count);
+                    }
+                }
+                if ($comments && count($comments) > 0) {
+                    foreach ($comments as $comment) {
+                        $rating += floatval(get_comment_meta($comment->comment_ID, 'vendor_rating', true));
+    		    if (get_wcmp_vendor_settings('product_review_sync', 'general') && get_wcmp_vendor_settings('product_review_sync', 'general') == 'Enable') {
+                            $product_rating += floatval(get_comment_meta($comment->comment_ID, 'rating', true));
+                        }
+                    }
+    		$rating = $rating + $product_rating;
+                    $rating_result_array['total_rating'] = count($comments);
+                    $rating_result_array['avg_rating'] = $rating / count($comments);
+                }
             }
         }
-
         return $rating_result_array;
     }
 
