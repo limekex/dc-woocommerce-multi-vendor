@@ -532,7 +532,7 @@ class WCMp_Vendor {
                                     $item_dtl[$item_id] = $item;
                                 }
                             } else {
-                                
+                                $item_dtl[$item_id] = $item;
                             }
                         }
                     }
