@@ -280,7 +280,7 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 
 == Changelog ==
 
-= 3.8.11.2 - 2022-04-11 =
+= 3.8.11.2 - 2022-04-12 =
 * Fix   - Recapta issue #1072.
 * Fix   - Limit zone saved issue #1067.
 * Fix   - WPML Error #1068.
