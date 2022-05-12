@@ -1076,6 +1076,7 @@ class WCMp_Vendor {
         // update comment author & email
         wp_update_comment(array('comment_ID' => $comment_id, 'comment_author' => $this->page_title, 'comment_author_email' => $this->user_data->user_email));
         add_comment_meta($comment_id, '_vendor_id', $this->id);
+        do_action('wcmp_after_vendor_ship_save', $comment_id, $order_id, $tracking_url, $tracking_id);
     }
 
     /**
