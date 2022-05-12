@@ -5,7 +5,7 @@ Donate link: https://wc-marketplace.com/donate
 Requires at least: 4.4
 Tested up to: 5.9.3
 Requires PHP: 5.6
-Stable tag: 3.8.11.2
+Stable tag: 3.8.11.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -279,6 +279,10 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 14. Show Multiple Seller in Single Product.
 
 == Changelog ==
+
+= 3.8.11.3 - 2022-05-12 =
+* Added - Compatibility of WooCommerce 6.5.0.
+* Updated - Language file.
 
 = 3.8.11.2 - 2022-04-12 =
 * Fix   - Recapta issue #1072.
