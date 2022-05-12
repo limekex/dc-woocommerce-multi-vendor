@@ -283,6 +283,7 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 = 3.8.11.3 - 2022-05-12 =
 * Added - Compatibility of WooCommerce 6.5.0.
 * Dev   - Added `wcmp_after_vendor_ship_save` action.
+* Enhancement - Grunt version updated.
 * Updated - Language file.
 
 = 3.8.11.2 - 2022-04-12 =
