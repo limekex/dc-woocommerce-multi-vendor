@@ -3,9 +3,9 @@ Contributors: wcmp, purnendu, rajsekharchatterjee11, sumitsingh89612
 Tags: multi vendor marketplace, woocommerce multivendor marketplace, multi seller store, product vendors, best marketplace plugin, multi seller, one product multi seller, woocommerce vendors, ebay, etsy, amazon, commission rate
 Donate link: https://wc-marketplace.com/donate
 Requires at least: 4.4
-Tested up to: 5.9.3
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 3.8.11.3
+Stable tag: 3.8.11.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -279,6 +279,18 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 14. Show Multiple Seller in Single Product.
 
 == Changelog ==
+
+= 3.8.11.4 - 2022-05-26 =
+* Added - Compatibility of WordPress 6.0.
+* Added - Compatibility of WooCommerce 6.5.1.
+* Fix   - Re-edited product publish issue #1084.
+* Fix   - When logged he’s redirected to the vendor dashboard, whereas he should remain in the checkout page #1087.
+* Enhancement - Grunt version updated.
+* Enhancement   - Contact Vendor Mail add product name #1085.
+* Enhancement   - Stop creating sub order for failed order #1086.
+* Dev   - Added `woocomerce_checkout_page_name_from_url` filter.
+* Dev   - Added `wcmp_create_order_commissions_as_per_statuses` filter.
+* Updated - Language file.
 
 = 3.8.11.3 - 2022-05-12 =
 * Added - Compatibility of WooCommerce 6.5.0.

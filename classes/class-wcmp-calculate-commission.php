@@ -43,7 +43,7 @@ class WCMp_Calculate_Commission {
     public function wcmp_create_commission($vendor_order_id, $posted_data, $order) {
         global $WCMp;
         $processed = get_post_meta($vendor_order_id, '_commissions_processed', true);
-        if (!$processed) {
+        if (!$processed && apply_filters( 'wcmp_create_order_commissions_as_per_statuses', true, $vendor_order_id )) {
             //$commission_ids = get_post_meta($vendor_order_id, '_commission_ids', true) ? get_post_meta($vendor_order_id, '_commission_ids', true) : array();
             $vendor_order = wc_get_order($vendor_order_id);
             $vendor_id = get_post_meta($vendor_order_id, '_vendor_id', true);

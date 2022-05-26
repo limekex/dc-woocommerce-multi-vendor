@@ -57,6 +57,7 @@ extract( $instance );
                     <input type="submit" class="submit" id="submit" name="quick_info[submit]" value="<?php echo esc_html($submit_label); ?>" />
                     <input type="hidden" name="quick_info[spam]" value="" />
                     <input type="hidden" name="quick_info[vendor_id]" value="<?php echo esc_html($vendor->id); ?>" />
+                    <input type="hidden" name="quick_info[post_id]" value="<?php echo $post ? esc_html($post->ID) : ''; ?>" />
                     <?php wp_nonce_field( 'dc_vendor_quick_info_submitted', 'dc_vendor_quick_info_submitted' ); ?>
     </form>
 </div>
