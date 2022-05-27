@@ -280,7 +280,7 @@ Ans. Obviously, you can! Join in on our [GitHub repository](https://github.com/d
 
 == Changelog ==
 
-= 3.8.11.4 - 2022-05-26 =
+= 3.8.11.4 - 2022-05-27 =
 * Added - Compatibility of WordPress 6.0.
 * Added - Compatibility of WooCommerce 6.5.1.
 * Fix   - Re-edited product publish issue #1084.
