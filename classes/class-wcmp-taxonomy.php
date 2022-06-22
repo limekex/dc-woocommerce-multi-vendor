@@ -70,6 +70,8 @@ class WCMp_Taxonomy {
             'rewrite' => array('slug' => $vendor_slug),
             'show_admin_column' => true,
             'show_ui' => false,
+            'show_in_rest' => true,
+            'query_var'    => true,
             'labels' => $labels
         );
         register_taxonomy($this->taxonomy_name, 'product', $args);
